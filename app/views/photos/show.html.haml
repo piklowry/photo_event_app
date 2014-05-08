@@ -1,0 +1,34 @@
+- @photo.each do |m|
+  .col-sm-3.col-xs-6
+    .panel.panel-default
+      .panel-thumbnail
+        = image_tag m.photo_pic.url ,:style => "max-width: 100%"
+        
+
+
+
+
+
+
+/ %br
+/ - @photos.each do |m|
+/   - m.events.each do |photo|
+/     / - photo.comments.each do |comment|
+/     .col-sm-3.col-xs-6
+/       .panel.panel-default
+/         .panel-thumbnail
+/           = image_tag m.photo_pic.url ,:style => "max-width: 100%"
+/           .panel-body
+/             %p.lead
+/             %ul#comments
+/             %li
+/             = @liked
+/             %br
+/             = form_for @new_comment, url: photo_path, method: :post do |f|
+/               = f.hidden_field :liked_id, value: @new_comment.liked_id
+/               = f.hidden_field :liked_type, value: @new_comment.liked_type
+/               = f.text_field :message
+/               = f.submit "Tag"
+
+
+

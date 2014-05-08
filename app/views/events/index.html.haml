@@ -1,0 +1,36 @@
+%br
+- @events.each do |m|
+  - m.photos.each do |photo|
+    / - photo.comments.each do |comment|
+    .col-sm-3.col-xs-6
+      .panel.panel-default
+        .panel-thumbnail
+          = image_tag photo.photo_pic.url ,:style => "max-width: 100%"
+          .panel-body
+          - if user_signed_in?
+            = m.title
+            = link_to 'Edit', edit_event_path(m)
+            = link_to 'Delete', event_path(m), :method => :delete, :data => { :confirm => 'Are you sure?' }
+            %br
+            %br
+            = button_to "More Info!", event_path(photo), method: :get
+            / = form_for [@liked, Comment.new] do |c|
+            /   %ol.formList
+            /     %li
+            /       = c.label :message
+            /       = c.text_area :message, :rows => 1
+            /     %li= submit_tag "Tag"
+
+          
+
+
+
+             
+
+
+            
+            
+                       
+            
+              
+

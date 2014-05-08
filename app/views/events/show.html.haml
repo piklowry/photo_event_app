@@ -1,0 +1,61 @@
+%br
+%br
+.col-xs-5.col-sm-5
+  .panel.panel-default
+    .img.thumbnail
+      = image_tag @event.photos.first.photo_pic.url
+      .panel-body
+        %p.lead
+        = @event.title
+        %br
+        %br
+        = @event.description
+        - @event.comments.each do |t|
+          = t.message
+          %br
+          %br
+
+
+        .container{:style => "float:center;"}
+          = form_for @new_comment do |f|
+            = f.hidden_field :liked_id, value: @new_comment.liked_id
+            = f.hidden_field :liked_type, value: @new_comment.liked_type
+            = f.text_field :message
+            = f.submit "Comment!"
+        %br
+
+
+        .container{:style => "float:center;"}
+          = form_for @new_tag, url: tags_path, method: :post do |f|
+            = hidden_field_tag :event_id, @event.id
+            = f.text_field :name
+            = f.submit "Tag!"
+        %br
+
+        .social-likes.social-likes_light{"data-counters" => "no"}
+          .facebook{:title => "Share link on Facebook"} Facebook
+          .twitter{:title => "Share link on Twitter"} Twitter
+          .plusone{:title => "Share link on Google+"} Google+ 
+
+
+
+%br
+- @event.tags.each do |t|
+  .tagss
+    = t.name
+
+  
+
+
+/ - @events.each do |m|
+/   - m.photos.each do |photo|
+/     / - photo.comments.each do |comment|
+/     .col-sm-3.col-xs-6
+/       .panel.panel-default
+/         .panel-thumbnail
+/           = image_tag photo.photo_pic.url ,:style => "max-width: 100%"
+/           .panel-body
+
+/ / - @event.photos.each do |photo|
+/ /   = image_tag photo.photo_pic.url
+

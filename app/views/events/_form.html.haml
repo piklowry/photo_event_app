@@ -1,0 +1,22 @@
+= f.label :title
+%br
+= f.text_field :title 
+%p
+= f.label :description
+%br
+= f.text_field :description
+%br
+= f.fields_for :photos do |ff|
+	%p
+	=ff.label :name
+	%br
+	=ff.text_field :name
+	%br
+	%br
+	=ff.file_field :photo_pic
+	%br
+	-ff.hidden_field :photo_pic
+	%br
+
+
+

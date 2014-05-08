@@ -1,0 +1,13 @@
+%ul#comments
+  - @comments.each do |m|
+    %li
+    = m.message
+
+
+/ = form_for [@liked, Comment.new] do |form|
+/   %ol.formList
+/     %li
+/       = form.label :message
+/       = form.text_area :message, :rows => 1
+/     %li= submit_tag "Tag"
+    

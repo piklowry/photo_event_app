@@ -1,0 +1,24 @@
+= form_for [@liked, @comment] do |f| 
+  = f.text_area :message, rows: 2 
+  = f.submit
+
+
+
+
+/ =form_for @new_comment, url: comments_path do |f|
+/   = f.label :message
+/   = f.text_field :message
+/   = f.label :id
+/   = f.text_field :id
+/   = f.submit "comment", :class => "button btn btn-primary"
+
+/ - @photos.each do |m|
+/   .col-sm-3.col-xs-6
+/     .panel.panel-default
+/       .panel-thumbnail
+/       = image_tag m.photo_pic.url ,:style => "max-width: 100%"
+
+
+/ = f.text_area :ontent, rows:2 
+/   f.submit
+/ = link_to "New Comment", [:new, @liked, :comment]
