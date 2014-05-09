@@ -8,16 +8,18 @@ def index
     @new_tag = Tag.new
   end
 
-  def create
-    @new_tag = Tag.new(tag_params)
+
+   def create
+
     @event = Event.find(params[:event_id])
-      if @new_tag.save
-      @event.tags << @new_tag
-      redirect_to :back
-      else
-       redirect_to events_path
-    end
+    name = params[:tag][:name]
+    @new_tag = Tag.where(name: name).first_or_create
+    @event.tags << @new_tag unless @event.tags.exists?(@new_tag)
+    redirect_to @event
   end
+
+
+
 
 
 

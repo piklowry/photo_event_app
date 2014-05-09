@@ -1,0 +1,11 @@
+%br
+%br
+.col-xs-5.col-sm-5
+	.panel.panel-default
+		.img.thumbnail
+			%h2 New Event
+			=form_for @new_event, url: events_path do |f|
+				=render "form_three", f: f
+				%br
+				= f.submit "Add Event", :class => "button btn btn-primary"
+

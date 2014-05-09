@@ -44,7 +44,19 @@
   .tagss
     = t.name
 
+%br    
+%br
+%br
   
+/ - @photos.each do |p|
+/   .col-xs-4.col-sm-4
+/     .panel.panel-default
+/       .img.thumbnail
+/         = image_tag p.photo_pic
+
+
+
+
 
 
 / - @events.each do |m|

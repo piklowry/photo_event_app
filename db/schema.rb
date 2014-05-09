@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140507184911) do
+ActiveRecord::Schema.define(version: 20140508221442) do
 
   create_table "comments", force: true do |t|
     t.text    "message"
@@ -20,9 +20,11 @@ ActiveRecord::Schema.define(version: 20140507184911) do
   end
 
   create_table "events", force: true do |t|
-    t.string "title"
-    t.string "description"
-    t.string "location"
+    t.string  "title"
+    t.string  "description"
+    t.string  "location"
+    t.date    "date_time"
+    t.boolean "attending"
   end
 
   create_table "events_photos", id: false, force: true do |t|

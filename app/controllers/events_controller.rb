@@ -5,6 +5,7 @@ class EventsController < ApplicationController
     @photos = Photo.all
   end
 
+
   def new
     @new_event = Event.new
     @new_event.photos.build
@@ -25,9 +26,20 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @new_comment = @event.comments.build
     @new_tag = @event.tags.build
-    @photos = Photo.all
-    @photos = Photo.find_by(:name => "party")
+    # @photos = []
+    # until @photos.count == 4 do
+    # photo = Photo.find(rand(1..Photo.all.count))
+    # @photos << photo unless @photos.include?(photo)
   end
+# end
+
+
+  def demoform
+    @new_event = Event.new
+  end
+
+    
+  
 
   def edit
     @event = Event.find(params[:id])

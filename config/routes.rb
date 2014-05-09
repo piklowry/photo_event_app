@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     collection do
       get :results
       get :search
+      get :demoform
   end
 
   
