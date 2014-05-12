@@ -34,6 +34,8 @@ end
 group :test do
 	gem 'rspec-rails'
 	gem 'factory_girl_rails'
+	gem 'launchy', '~> 2.4.2'
+	gem 'faker', '~> 1.3.0'
 end
 
 

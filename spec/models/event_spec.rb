@@ -1,9 +1,21 @@
 require 'spec_helper'
 
+
 	describe Event do
 		let(:event) { Event.new }
-		
-	
+
+# validates_presence_of :title
+
+	it "should not save without a Title" do
+		event = Event.new
+		event.title = nil
+		assert !event.save, "Save the Event without title"
+	end
+
+# index
+
+
+
 	it 'should have index' do
 		@event = Event.all 
 	end
