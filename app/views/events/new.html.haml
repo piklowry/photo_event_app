@@ -4,7 +4,7 @@
 	.panel.panel-default
 		.img.thumbnail
 			%h2 New Event
-			=form_for @new_event, url: events_path do |f|
+			=form_for @event, url: events_path do |f|
 				=render "form", f: f
 				%br
 				= f.submit "Add Event", :class => "button btn btn-primary"

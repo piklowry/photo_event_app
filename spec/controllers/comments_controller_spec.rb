@@ -7,11 +7,11 @@ describe CommentsController do
 		it "lists the comments of a page" do 
 			FactoryGirl.create(:comment)
 			get :index 
-			assigns(:comments).should_not be_nil
+			assigns(:comments).count.should_not be_nil
 		end 
 			it "renders the :index view/home page" do
 			get :index
-			response.should redirect_to "/events/#{event.id}"
+			response.should redirect_to "/photos/#{event.id}"
 		end 
 	end
 
@@ -42,22 +42,22 @@ describe CommentsController do
 	# end
 
 
- #  # describe "PUT #update" do
+  # describe "PUT #update" do
 
- #  #   it "updates event with specified attributes" do
- #  #     event = FactoryGirl.create(:event)
- #  #     put :update, id: event
- #  #     updated_event = Event.find(event.id)
- #  #     expect.should_not be_nil
- #  #   end
+  #   it "updates event with specified attributes" do
+  #     event = FactoryGirl.create(:event)
+  #     put :update, id: event
+  #     updated_event = Event.find(event.id)
+  #     expect.should_not be_nil
+  #   end
 
- #  #   it "redirects to the edit page" do
- #  #     event = FactoryGirl.create(:event)
- #  #     put :update, id: event 
- #  #     response.should redirect_to "/events/#{event.id}"
- #  #   end
+  #   it "redirects to the edit page" do
+  #     event = FactoryGirl.create(:event)
+  #     put :update, id: event 
+  #     response.should redirect_to "/events/#{event.id}"
+  #   end
 
- #  # end
+  # end
 
 	
  #  describe "DELETE #destroy" do

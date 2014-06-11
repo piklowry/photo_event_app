@@ -1,0 +1,26 @@
+= link_to 'Delete', photo_path(m), photo, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+- @photos.each do |m|
+  .col-sm-3.col-xs-6
+    .panel.panel-default
+      .panel-thumbnail
+      = image_tag m.photo_pic.url ,:style => "max-width: 100%"
+      .panel-body
+        %p.lead
+          = m.name  
+          %p
+          %a{:href => "/photos/#{m.id}/edit"} Edit
+          %a{:href => "/photos/#{m.id}/edit"} Delete
+          %br
+          = form_for @photo, url: 'photos/#{@photo.id', method: "put" |f|
+            = f.fields_for :comments do |ff|
+            = ff.text_field :message
+            = f.submit
+
+          
+            = link_to "Download Photo", download_photo_pic_photo_path(m)
+            .social-likes.social-likes_light{"data-counters" => "no"}
+              .icon-facebook{:title => "Share link on Facebook"} Facebook
+              .icon-twitter-t{:title => "Share link on Twitter"} Twitter
+              .icon-google-plus{:title => "Share link on Google+"} Google+ 

@@ -7,19 +7,34 @@ class EventsController < ApplicationController
 
 
   def new
-    @new_event = Event.new
-    @new_event.photos.build
+    @event = Event.new
+    @event.photos.build
     
   end
 
+  # def create
+  #   @new_event = Event.new(event_params)
+  #   if @new_event.save
+  #     redirect_to events_path
+  #   else
+  #     redirect_to new_event_path
+  #   end
+  # end
+
   def create
-    @new_event = Event.new(event_params)
-    if @new_event.save
-      redirect_to events_path
-    else
-      redirect_to new_event_path
+    @event = Event.new(event_params)
+    if @event.save
+    respond_to do |format|
+      format.js  { render json: @event }
+      format.html { redirect_to events_path }
+    end
+  else 
+    respond_to do |format|
+      format.js 
+      format.html { redirect_to events_path, notice: "update failed." }
     end
   end
+end
 
 
   def show

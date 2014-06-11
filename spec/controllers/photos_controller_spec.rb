@@ -4,18 +4,16 @@ describe PhotosController do
 
 	
 	describe "GET #index" do
-		it "lists the photos of a page" do 
+		it "assigns a collection of photos to @photo" do 
 			FactoryGirl.create(:photo)
 			get :index 
-			assigns(:photos).should_not be_nil
+			assigns(:photos).count.should_not be_nil
 		end 
 			it "renders the :index view/home page" do
 			get :index
 			response.should render_template :index
 		end 
 	end
-
-
 
 	describe "GET #show" do 
 		it "assigns the requested event to @photos" do
@@ -31,6 +29,7 @@ describe PhotosController do
 		end 
 	end 
 
+
 	describe "POST #create" do 
 		context "with valid attributes" do
 			it "creates a new photo" do
@@ -41,16 +40,29 @@ describe PhotosController do
 		end
 	end
 
-# 	describe 'DELETE destroy' do 
-# 	before :each do 
-# 		@photo = Photo.find(params[:id]) 
-# 	end 
+	  describe "PUT #update" do
 
-# 	it "delete the event" do
-# 		expect {
-# 			delete :destroy, id: @photo}.to change(Photo,:count).by(-1)
-# 	end 
-# end
+    it "should update photo attributes" do
+      photo = FactoryGirl.create(:photo)
+      put :update, id: photo.id, photo:{name: "classroom"}
+      assigns(:photo).name.should eq("classroom")
+    end
+
+    it "redirects to the edit page" do
+      photo = FactoryGirl.create(:photo)
+       put :update, id: photo.id, photo:{name: "classroom"} 
+      response.should redirect_to "/photos/#{photo.id}"
+    end
+
+  end
+
+	
+	describe 'DELETE destroy' do 
+		it "delete the event" do
+		expect {
+			delete :destroy, id: @photo}.to change(Photo,:count).by(-1)
+		end 
+	end
 
 
 

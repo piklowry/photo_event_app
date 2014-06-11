@@ -1,28 +1,28 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Event App with Photos, created with ruby on rails, and twitter bootstrap
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+the project contrains devisted, nested forms, comments polymorphic association,
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
+To begin this project
+
+Clone repo locally. Install dependencies
+
+	bundle install
+
+Set up database. We are using sqlite
+
+	rake db:migrate
+
+before you start you must boot up your mysql server
+
+	run mysql.server start in the terminal
+
+	##Contributing
+
+We are not accepting contribuntions at the moment, but feel free to fork this repo and use it howeve you see fit
+
+
+
